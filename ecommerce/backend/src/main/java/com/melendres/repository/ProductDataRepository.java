@@ -1,0 +1,7 @@
+package com.melendres.repository;
+
+import com.melendres.entity.ProductData;
+import org.springframework.data.repository.CrudRepository;
+
+public interface ProductDataRepository extends CrudRepository<ProductData, Integer> {
+}

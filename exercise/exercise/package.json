@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^20.3.4",
+    "@angular/build": "^20.3.4"
+  }
+}

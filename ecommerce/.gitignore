@@ -1,0 +1,39 @@
+# ===== Maven build output =====
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# ===== IntelliJ IDEA =====
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# ===== OS junk =====
+.DS_Store
+Thumbs.db
+
+# ===== Logs =====
+*.log
+logs/
+
+# ===== Local configuration & secrets (DO NOT COMMIT REAL CREDS) =====
+src/main/resources/application.properties
+src/main/resources/application.yml
+src/main/resources/application-*.properties
+src/main/resources/application-*.yml
+
+# Commit an example config instead (no secrets):
+# -> src/main/resources/application-example.properties
+
+# ===== Node (if any UI inside this repo) =====
+/node_modules/
+
+# ===== Docker overrides (if you have local-only overrides) =====
+docker-compose.override.yml
+
+# Frontend (Angular)
+/frontend/node_modules/
+/frontend/dist/
+/frontend/.angular/cache/
+/frontend/.vscode/

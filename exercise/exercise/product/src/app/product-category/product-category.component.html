@@ -1,0 +1,32 @@
+<div class="container-fluid hero-contact p-0 m-0">
+  <h2>eCommerce</h2>
+      <div *ngFor="let category of productsCategory" class="col-md-4 newspaper">
+          <div>{{category.categoryName}}</div>
+            <div  class="box" *ngFor="let prod of category.products" >
+            <img class="productimg" src="../assets/products/{{prod.imageFile}}.jpg"/>
+            <p class="productname">{{prod.name}}</p>
+            <p class="productcategory">{{prod.description}}</p> 
+            <p class="productcategory">{{prod.categoryName}}</p> 
+            <p class="productcategory">{{prod.unitOfMeasure}}</p> 
+            <p class="productcategory">{{prod.price}}</p>        
+            <img  routerLink="/cart" class="cart" src="../assets/icons/shoppingcart.svg" />
+            </div>
+      </div>
+<!--    <table class="table">
+      <div *ngFor="let category of productsCategory" class="col-md-4">
+        <tr >
+          <h2>{{category.categoryName}}</h2>
+        </tr >
+        <tr >
+            <td *ngFor="let prod of category.products" class="col-md-4">
+            <img class="productimg" src="../assets/products/{{prod.imageFile}}.jpg"/>
+            <p class="productname">{{prod.name}}</p>
+            <p class="productcategory">{{prod.description}}</p> 
+            <p class="productcategory">{{prod.categoryName}}</p> 
+            <p class="productcategory">{{prod.unitOfMeasure}}</p> 
+            <p class="productcategory">{{prod.price}}</p>        
+            <img  routerLink="/cart" class="cart" src="../assets/icons/shoppingcart.svg" />
+          </td>
+        </tr>
+      </div>
+    </table>-->
