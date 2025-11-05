@@ -1,1 +1,61 @@
-<p>shopping-cart works!</p>
+<h2>My Cart ({{ count }} items)</h2>
+
+<!-- status message -->
+<div *ngIf="message" style="margin:.5rem 0; padding:.5rem .75rem; border:1px solid #cbd5e1; border-radius:.5rem;">
+  {{ message }}
+</div>
+
+<div *ngIf="items.length; else empty">
+  <div
+    *ngFor="let i of items; trackBy: trackById"
+    style="display:flex;gap:12px;align-items:center;margin:10px 0; border:1px solid #e5e7eb; border-radius:10px; padding:10px;"
+  >
+    <img
+      [src]="i.imageUrl || '/assets/placeholder.png'"
+      [alt]="i.name"
+      width="60" height="60"
+      style="object-fit:cover;border-radius:8px;"
+    />
+
+    <div style="flex:1 1 auto; min-width:0;">
+      <div style="font-weight:600; line-height:1.2;">{{ i.name }}</div>
+      <small class="text-muted">{{ i.brand }}</small>
+      <div>₱{{ i.pricePhp | number:'1.0-0' }}</div>
+      <div *ngIf="i.stock != null">Stock: {{ i.stock }}</div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+      <div>
+        <button type="button" (click)="dec(i)">-</button>
+        <span style="padding:0 8px; display:inline-block; min-width:24px; text-align:center;">
+          {{ i.qty }}
+        </span>
+        <button type="button" (click)="inc(i)" [disabled]="i.stock != null && i.qty >= i.stock">+</button>
+      </div>
+      <small *ngIf="i.stock != null && i.qty >= i.stock" style="color:#b91c1c;">Max stock reached</small>
+    </div>
+
+    <div style="width:120px;text-align:right; font-weight:600;">
+      ₱{{ (i.qty * i.pricePhp) | number:'1.0-0' }}
+    </div>
+
+    <button type="button" (click)="remove(i)">Remove</button>
+  </div>
+
+  <hr />
+
+  <div style="display:flex;justify-content:flex-end;align-items:center;gap:12px;">
+    <div style="font-size:18px">
+      Subtotal: <b>₱{{ subtotal | number:'1.0-0' }}</b>
+    </div>
+
+    <!-- Calls checkout() in your TS -->
+    <button type="button" (click)="checkout()" [disabled]="items.length === 0">
+      Checkout
+    </button>
+  </div>
+</div>
+
+<ng-template #empty>
+  <p>Your cart is empty.</p>
+</ng-template>

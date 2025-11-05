@@ -1,1 +1,90 @@
-<p>product-order works!</p>
+<h2>Checkout</h2>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:1000px">
+
+  <!-- LEFT: Shipping / Payment form -->
+  <section>
+    <h3>Shipping Details</h3>
+
+    <label style="display:block;margin-top:8px;">
+      Full name
+      <input [(ngModel)]="form.fullName" name="fullName" required autocomplete="name" />
+    </label>
+
+    <label style="display:block;margin-top:8px;">
+      Phone
+      <input [(ngModel)]="form.phone" name="phone" required autocomplete="tel" />
+    </label>
+
+    <label style="display:block;margin-top:8px;">
+      Address
+      <textarea [(ngModel)]="form.address" name="address" rows="3" required
+                autocomplete="street-address"></textarea>
+    </label>
+
+    <label style="display:block;margin-top:8px;">
+      Payment Method
+      <select [(ngModel)]="form.paymentMethod" name="paymentMethod" autocomplete="off">
+        <option value="COD">Cash on Delivery</option>
+        <option value="GCash">GCash</option>
+        <option value="Card">Card</option>
+      </select>
+    </label>
+
+    <label style="display:block;margin-top:8px;">
+      Notes (optional)
+      <textarea [(ngModel)]="form.notes" name="notes" rows="2" autocomplete="off"></textarea>
+    </label>
+
+    <button style="margin-top:14px" (click)="placeOrder()" [disabled]="isPlacing || !items.length">
+      {{ isPlacing ? 'Placing…' : 'Place Order' }}
+    </button>
+    <button style="margin-top:14px;margin-left:8px" (click)="clearCart()" type="button">
+      Clear Cart
+    </button>
+  </section>
+
+  <!-- RIGHT: Order summary -->
+  <section>
+    <h3>Order Summary</h3>
+
+    <ng-container *ngIf="items.length; else empty">
+      <div *ngFor="let i of items"
+           style="display:flex;gap:12px;align-items:center;margin:6px 0;">
+        <img [src]="i.imageUrl || '/assets/placeholder.png'"
+             [alt]="i.name"
+             style="width:48px;height:48px;object-fit:cover;border-radius:8px;">
+        <div style="flex:1">
+          <div style="font-weight:600">{{ i.name }}</div>
+          <small>{{ i.brand }}</small>
+          <div>₱{{ i.pricePhp | number:'1.0-0' }}</div>
+        </div>
+
+        <div>
+          <button (click)="dec(i)" type="button">-</button>
+          <span style="padding:0 8px">{{ i.qty }}</span>
+          <button (click)="inc(i)" type="button">+</button>
+        </div>
+
+        <div style="width:100px;text-align:right">₱{{ (i.qty * i.pricePhp) | number:'1.0-0' }}</div>
+        <button (click)="remove(i)" type="button">Remove</button>
+      </div>
+
+      <hr>
+
+      <div style="display:flex;justify-content:space-between;margin:4px 0;">
+        <span>Subtotal</span><b>₱{{ subtotal | number:'1.0-0' }}</b>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin:4px 0;">
+        <span>Shipping</span><b>₱{{ shipping | number:'1.0-0' }}</b>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin:8px 0;font-size:18px;">
+        <span>Total</span><b>₱{{ total | number:'1.0-0' }}</b>
+      </div>
+    </ng-container>
+
+    <ng-template #empty>
+      <p>Your cart is empty.</p>
+    </ng-template>
+  </section>
+</div>

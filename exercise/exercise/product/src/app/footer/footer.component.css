@@ -1,6 +1,67 @@
-.footer{
-    width:1601px; 
-    height:68px;
-    
-    background-color:rgb(20, 203, 220);
+/* Base + theme */
+.ft { background:#0f172a; color:#e2e8f0; margin-top:32px; font-size:14px; }
+.ft a { color:#cbd5e1; text-decoration:none; }
+.ft a:hover { color:#fff; }
+
+/* Center and constrain the whole footer */
+.ft-container{
+  max-width: 1000px;            /* <= reduce overall “bigness” here */
+  margin: 0 auto;               /* center it */
+  padding: 0 16px;
 }
+
+/* Main row: brand on left, links spanning the rest */
+.ft-inner{
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;  /* brand | links area */
+  gap: 20px;                          /* smaller gaps */
+  padding: 16px 0;
+}
+
+/* Brand */
+.ft-logo{
+  display:flex; align-items:center; gap:8px;
+  color:#fff; font-weight:700; line-height:1;
+}
+.logo-img{
+  width:32px; height:32px;            /* tiny logo */
+  object-fit:contain; border-radius:6px; display:block;
+}
+.ft-tag{ margin-top:4px; color:#94a3b8; font-size:12px; }
+
+/* Links: 3 columns spread across the right side */
+.ft-links{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(140px, 1fr));
+  column-gap: 24px;                   /* spread columns so text isn’t all left */
+  row-gap: 6px;
+  justify-items: start;               /* left-align within each column */
+}
+
+.ft-col h4{
+  margin: 0 0 6px;
+  color:#fff; font-size:13px; font-weight:600;
+}
+.ft-col a{
+  display:block;
+  padding: 3px 0;
+  font-size:13px;
+}
+
+/* Bottom strip */
+.ft-bottom{
+  border-top:1px solid #1f2937;
+  padding: 10px 0;
+  text-align:center;
+  color:#94a3b8;
+  font-size:12px;
+}
+
+/* Mobile: stack but keep centered container */
+@media (max-width: 700px){
+  .ft-inner{ grid-template-columns: 1fr; }
+  .ft-links{ grid-template-columns: repeat(2, minmax(120px,1fr)); }
+}
+
+/* Safety if a global img rule inflates the logo */
+.ft .logo-img{ max-width:32px !important; max-height:32px !important; }

@@ -1,0 +1,42 @@
+<h2>Perfumes</h2>
+
+<div class="controls">
+  <label for="occ">Pick an occasion:</label>
+  <select id="occ" [(ngModel)]="selectedOccasion" name="occasion">
+    <option *ngFor="let o of occasions" [value]="o">{{ o }}</option>
+  </select>
+
+  <button (click)="filterByOccasion()">Show perfumes</button>
+ <button class="ghost" (click)="showAll()">Show All</button>
+
+
+  <span class="count" *ngIf="!loading">Showing {{ perfumes.length }} item(s)</span>
+</div>
+
+<div *ngIf="loading" class="loading">Loading…</div>
+
+<div class="grid">
+  <div class="card" *ngFor="let p of perfumes; trackBy: trackById">
+    <!-- MEDIA BOX keeps all images the same visual size -->
+    <div class="media">
+      <img
+        class="photo"
+        [src]="normalizeSrc(p.imageUrl)"
+        (error)="onImgErr($event)"
+        loading="lazy"
+        [alt]="p.perfumeName"
+      />
+    </div>
+
+    <div class="meta">
+      <h4 class="title">{{ p.perfumeName }}</h4>
+      <div class="brand">{{ p.brand }}</div>
+      <div class="price">₱{{ p.pricePhp }}</div>
+      <small class="occasion">Occasion: {{ p.occasion || '—' }}</small>
+    </div>
+
+    <button class="primary" (click)="addToCart(p)">Add to cart</button>
+  </div>
+</div>
+
+   

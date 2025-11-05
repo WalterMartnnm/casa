@@ -1,5 +1,6 @@
 C:\casa\ecommerce\backend\src\main\java\com\melendres\entity\CatagoryData.java
 C:\casa\ecommerce\backend\src\main\java\com\melendres\entity\MenuData.java
+C:\casa\ecommerce\backend\src\main\java\com\melendres\repository\PerfumeRepository.java
 C:\casa\ecommerce\backend\src\main\java\com\melendres\service\OrderItemService.java
 C:\casa\ecommerce\backend\src\main\java\com\melendres\repository\OrderItemDataRepository.java
 C:\casa\ecommerce\backend\src\main\java\com\melendres\Main.java
@@ -13,6 +14,7 @@ C:\casa\ecommerce\backend\src\main\java\com\melendres\repository\ProductDataRepo
 C:\casa\ecommerce\backend\src\main\java\com\melendres\serviceimpl\OrderItemServiceImpl.java
 C:\casa\ecommerce\backend\src\main\java\com\melendres\model\ProductCategory.java
 C:\casa\ecommerce\backend\src\main\java\com\melendres\entity\AppDetailData.java
+C:\casa\ecommerce\backend\src\main\java\com\melendres\dto\CheckoutResponse.java
 C:\casa\ecommerce\backend\src\main\java\com\melendres\model\Customer.java
 C:\casa\ecommerce\backend\src\main\java\com\melendres\controller\CategoryController.java
 C:\casa\ecommerce\backend\src\main\java\com\melendres\entity\AppDetailsData.java
@@ -20,13 +22,15 @@ C:\casa\ecommerce\backend\src\main\java\com\melendres\controller\OrderController
 C:\casa\ecommerce\backend\src\main\java\com\melendres\service\ProductService.java
 C:\casa\ecommerce\backend\src\main\java\com\melendres\serviceimpl\MenuServiceImpl.java
 C:\casa\ecommerce\backend\src\main\java\com\melendres\controller\AppDetailsController.java
+C:\casa\ecommerce\backend\src\main\java\com\melendres\controller\PerfumeController.java
 C:\casa\ecommerce\backend\src\main\java\com\melendres\model\Product.java
+C:\casa\ecommerce\backend\src\main\java\com\melendres\service\CheckoutService.java
 C:\casa\ecommerce\backend\src\main\java\com\melendres\service\CustomerService.java
 C:\casa\ecommerce\backend\src\main\java\com\melendres\controller\CustomerController.java
 C:\casa\ecommerce\backend\src\main\java\com\melendres\entity\OrderItemData.java
 C:\casa\ecommerce\backend\src\main\java\com\melendres\entity\ProductData.java
 C:\casa\ecommerce\backend\src\main\java\com\melendres\controller\OrderItemController.java
-C:\casa\ecommerce\backend\src\main\java\com\melendres\controller\ProductController.java
+C:\casa\ecommerce\backend\src\main\java\com\melendres\dto\CheckoutRequest.java
 C:\casa\ecommerce\backend\src\main\java\com\melendres\controller\MenuController.java
 C:\casa\ecommerce\backend\src\main\java\com\melendres\enums\OrderItemStatus.java
 C:\casa\ecommerce\backend\src\main\java\com\melendres\model\Category.java
@@ -34,4 +38,5 @@ C:\casa\ecommerce\backend\src\main\java\com\melendres\serviceimpl\ProductService
 C:\casa\ecommerce\backend\src\main\java\com\melendres\model\OrderItem.java
 C:\casa\ecommerce\backend\src\main\java\com\melendres\util\Transform.java
 C:\casa\ecommerce\backend\src\main\java\com\melendres\model\Order.java
+C:\casa\ecommerce\backend\src\main\java\com\melendres\model\Perfume.java
 C:\casa\ecommerce\backend\src\main\java\com\melendres\model\AppDetail.java

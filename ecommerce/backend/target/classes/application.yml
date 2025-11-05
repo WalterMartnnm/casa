@@ -1,36 +1,44 @@
+server:
+  port: 8080
 
-server: 
-   port: 8080
-spring: 
-   datasource: 
-      url: jdbc:mysql://localhost:3306/ecom?allowPublicKeyRetrieval=true&createDatabaseIfNotExist=true&useSSL=false
-      username: casa
-      password: Triss143
-      driver-class-name: com.mysql.cj.jdbc.Driver
-   jpa: 
-      show-sql: true
-      properties: 
-         hibernate: 
-            dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-      hibernate: 
-         naming: 
-            implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
-            physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-         ddl-auto: update
-   servlet: 
-      multipart: 
-         enabled: true
-         file-size-threshold: 2KB
-         max-file-size: 200MB
-         max-request-size: 215MB
-   http: 
-      multipart: 
-         enabled: true
-         location: upload
-file: 
-   upload: 
-      location: ..\\upload-dir
-logging: 
-   level: 
-      com: 
-         melendres: TRACE
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/casa_de_esencias?allowPublicKeyRetrieval=true&createDatabaseIfNotExist=true&useSSL=false&serverTimezone=Asia/Manila
+    username: casa
+    password: Triss143
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    # ✅ IMPORTANT: use MySQL8 dialect and force InnoDB
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    properties:
+      hibernate:
+        # remove old 'org.hibernate.dialect.MySQLDialect'
+        # or any custom property that mentions MyISAM
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        dialect.storage_engine: innodb
+        format_sql: true
+        # optional but good:
+        jdbc.time_zone: Asia/Manila
+
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 200MB
+      max-request-size: 215MB
+
+file:
+  upload:
+    location: ..\\upload-dir
+
+logging:
+  level:
+    com:
+      melendres: TRACE

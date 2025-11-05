@@ -1,6 +1,6 @@
-import { Product } from "./product";
+import { Perfume } from './perfume';
 
-export class ProductCategory  {
-    categoryName: string = "";
-    products: Product[] = [];
+export interface ProductCategory {
+  categoryName: string;
+  products: Perfume[];
 }
